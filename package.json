@@ -1,5 +1,5 @@
 {
-  "name": "declare-const-enum-plugin",
+  "name": "@travellocal/babel-plugin-declare-const-enum",
   "version": "0.0.1",
   "description": "Babel plugin that reads .d.ts files for const enums and replaces them in parsed TypeScript files.",
   "main": "dist/plugin.js",
