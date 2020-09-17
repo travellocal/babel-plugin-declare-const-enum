@@ -1,19 +1,19 @@
 import * as BabelTypes from "@babel/types"
 import { Visitor } from "@babel/traverse";
-import { getTsconfigPath, loadTsconfig as getConstEnumsFromTsConfig } from "./typescriptUtils";
+import { getTsconfigPath, getConstEnumsFromTsConfig } from "./typescriptUtils";
 import ts, { SyntaxKind } from "typescript";
 
 export interface Babel {
   types: typeof BabelTypes;
 }
 
+const visited = new Set<string>();
+const ambientConstEnums = new Map<string, ts.EnumDeclaration>();
+
 /**
  * A plugin that rewrites usages of declare const enums with their values.
  */
 const declareConstEnumPlugin = ({ types }: Babel): { visitor: Visitor } => {
-
-  const visited = new Set<string>();
-  const ambientConstEnums = new Map<string, ts.EnumDeclaration>();
 
   return {
     visitor: {
@@ -22,7 +22,7 @@ const declareConstEnumPlugin = ({ types }: Babel): { visitor: Visitor } => {
 
         const tsconfigPath = getTsconfigPath(currentFile);
         if (!visited.has(tsconfigPath)) {
-          // console.debug(`Loading type info for ${tsconfigPath}`);
+          console.debug(`declare-const-enum: Loading type from ${tsconfigPath}`);
 
           const allEnums = getConstEnumsFromTsConfig(tsconfigPath);
           for (const foundEnum of allEnums) {

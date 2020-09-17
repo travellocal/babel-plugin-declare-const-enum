@@ -1,7 +1,7 @@
 
 import { existsSync, } from "fs";
 import { dirname } from "path";
-import ts, { ModifierFlags, SyntaxKind } from "typescript";
+import ts, { SyntaxKind } from "typescript";
 
 export const getTsconfigPath = (sourceFile: string) => {
   if (!existsSync(sourceFile)) {
@@ -17,7 +17,7 @@ let program: ts.Program;
  * Get const enums from the provided files.
  * @param files N.B. paths should be from root
  */
-export const loadTsconfig = (tsconfigPath: string) => {
+export const getConstEnumsFromTsConfig = (tsconfigPath: string) => {
   if (!existsSync(tsconfigPath)) {
     throw new Error(`Can't find tsconfig file ${tsconfigPath}. Working dir: ${process.cwd()}`);
   }
