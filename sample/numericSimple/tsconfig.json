@@ -8,4 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
   },
+  "include": [
+    "./**/*"
+  ]
 }

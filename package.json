@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.10.4",
     "@types/jest": "^26.0.14",
     "@types/node": "^12",
     "jest": "^26.4.2",
