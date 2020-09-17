@@ -1,0 +1,19 @@
+{
+  "name": "declare-const-enum-plugin",
+  "version": "0.0.1",
+  "description": "Babel plugin that reads .d.ts files for const enums and replaces them in parsed TypeScript files.",
+  "main": "index.js",
+  "author": "Rikki Tooley <rikki.tooley@travellocal.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/node": "^12",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.0.2"
+  }
+}
