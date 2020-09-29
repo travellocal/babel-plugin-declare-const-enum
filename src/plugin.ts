@@ -22,7 +22,7 @@ const declareConstEnumPlugin = ({ types }: Babel): { visitor: Visitor } => {
 
         const tsconfigPath = getTsconfigPath(currentFile);
         if (!visited.has(tsconfigPath)) {
-          console.debug(`declare-const-enum: Loading type from ${tsconfigPath}`);
+          console.debug(`declare-const-enum: Loading types from ${tsconfigPath}`);
 
           const allEnums = getConstEnumsFromTsConfig(tsconfigPath);
           for (const foundEnum of allEnums) {
