@@ -36,6 +36,8 @@ const declareConstEnumPlugin = ({ types }: Babel): { visitor: Visitor } => {
                 throw new Error(`Found a second reference to ${key} which had different members to the first. This is not supported.`);
               }
             }
+
+            visited.add(tsconfigPath);
           }
         }
       },
