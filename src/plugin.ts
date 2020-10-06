@@ -20,6 +20,11 @@ const declareConstEnumPlugin = ({ types }: Babel): { visitor: Visitor } => {
       Program: (path, state) => {
         const currentFile = (state as any).file.opts.filename as string;
 
+        // We only care for TypeScript files
+        if (!/.ts(x)?$/.test(currentFile)) {
+          return;
+        }
+
         const tsconfigPath = getTsconfigPath(currentFile);
         if (!visited.has(tsconfigPath)) {
           console.debug(`declare-const-enum: Loading types from ${tsconfigPath}`);
@@ -69,7 +74,7 @@ const declareConstEnumPlugin = ({ types }: Babel): { visitor: Visitor } => {
             throw new Error(`Found reference to ${object.name}.${property.name} but this is not a numeric or string literal. This is not supported.`);
           }
 
-          // console.debug(`Replaced ${object.name}.${property.name} with ${member.initializer.text}`);
+          console.debug(`Replaced ${object.name}.${property.name} with ${member.initializer.text}`);
 
           switch (member.initializer.kind) {
             case SyntaxKind.StringLiteral:
