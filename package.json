@@ -5,6 +5,9 @@
   "main": "dist/plugin.js",
   "types": "dist/plugin.d.ts",
   "author": "Rikki Tooley <rikki.tooley@travellocal.com>",
+  "repository": {
+    "url": "https://github.com/travellocal/babel-plugin-declare-const-enum"
+  },
   "license": "MIT",
   "scripts": {
     "build": "tsc",
