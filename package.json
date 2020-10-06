@@ -1,16 +1,21 @@
 {
   "name": "@travellocal/babel-plugin-declare-const-enum",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Babel plugin that reads .d.ts files for const enums and replaces them in parsed TypeScript files.",
-  "main": "dist/plugin.js",
-  "types": "dist/plugin.d.ts",
   "author": "Rikki Tooley <rikki.tooley@travellocal.com>",
   "repository": {
     "url": "https://github.com/travellocal/babel-plugin-declare-const-enum"
   },
   "license": "MIT",
+  "source": "src/plugin.ts",
+  "main": "dist/plugin.js",
+  "module": "dist/plugin.module.js",
+  "unpkg": "dist/plugin.umd.js",
+  "types": "dist/plugin.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "prepack": "yarn run build",
     "test": "jest"
   },
   "peerDependencies": {
@@ -22,6 +27,7 @@
     "@types/jest": "^26.0.14",
     "@types/node": "^12",
     "jest": "^26.4.2",
+    "microbundle": "^0.12.4",
     "ts-jest": "^26.3.0",
     "typescript": "^4.0.2"
   }
