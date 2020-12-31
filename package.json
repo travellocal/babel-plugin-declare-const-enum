@@ -9,12 +9,10 @@
   "license": "MIT",
   "source": "src/plugin.ts",
   "main": "dist/plugin.js",
-  "module": "dist/plugin.module.js",
-  "unpkg": "dist/plugin.umd.js",
   "types": "dist/plugin.d.ts",
   "scripts": {
-    "build": "microbundle",
-    "dev": "microbundle watch",
+    "build": "microbundle --target node",
+    "dev": "microbundle watch --target node",
     "prepack": "yarn run build",
     "test": "jest"
   },
@@ -23,6 +21,7 @@
     "typescript": "*"
   },
   "devDependencies": {
+    "@types/tmp": "^0.2.0",
     "@babel/preset-typescript": "^7.10.4",
     "@types/jest": "^26.0.14",
     "@types/node": "^12",
@@ -30,5 +29,8 @@
     "microbundle": "^0.12.4",
     "ts-jest": "^26.3.0",
     "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "tmp": "^0.2.1"
   }
 }

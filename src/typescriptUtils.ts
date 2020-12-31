@@ -42,3 +42,4 @@ export const getConstEnumsFromTsConfig = (tsconfigPath: string) => {
 
   return constEnums.map(x => x);
 };
+
